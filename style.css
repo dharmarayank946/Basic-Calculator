@@ -1,0 +1,312 @@
+/* ==========================================================================
+   VEDA Technology — Task 7: Basic Calculator
+   Clean, Light, Professional & Mobile Responsive Stylesheet
+   ========================================================================== */
+
+/* Design Tokens & Root Variables */
+:root {
+  --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  
+  /* Color Palette - Light Professional Theme */
+  --color-bg: #f1f5f9;
+  --color-card-bg: #ffffff;
+  --color-card-border: #e2e8f0;
+  
+  /* Text Colors */
+  --color-text-main: #0f172a;
+  --color-text-muted: #64748b;
+  --color-text-header: #1e293b;
+  
+  /* Display Area */
+  --color-display-bg: #f8fafc;
+  --color-display-border: #cbd5e1;
+
+  /* Button Styles */
+  --btn-num-bg: #ffffff;
+  --btn-num-text: #1e293b;
+  --btn-num-border: #e2e8f0;
+  --btn-num-hover: #f8fafc;
+  --btn-num-active: #e2e8f0;
+
+  --btn-op-bg: #eff6ff;
+  --btn-op-text: #2563eb;
+  --btn-op-border: #bfdbfe;
+  --btn-op-hover: #dbeafe;
+  --btn-op-active: #bfdbfe;
+
+  --btn-clear-bg: #fef2f2;
+  --btn-clear-text: #dc2626;
+  --btn-clear-border: #fecaca;
+  --btn-clear-hover: #fee2e2;
+  --btn-clear-active: #fecaca;
+
+  --btn-del-bg: #f8fafc;
+  --btn-del-text: #475569;
+  --btn-del-border: #cbd5e1;
+  --btn-del-hover: #f1f5f9;
+  --btn-del-active: #e2e8f0;
+
+  --btn-eq-bg: #2563eb;
+  --btn-eq-text: #ffffff;
+  --btn-eq-border: #1d4ed8;
+  --btn-eq-hover: #1d4ed8;
+  --btn-eq-active: #1e40af;
+
+  /* Shadows & Radius */
+  --radius-card: 20px;
+  --radius-btn: 12px;
+  --radius-display: 14px;
+  --shadow-card: 0 12px 32px rgba(15, 23, 42, 0.08), 0 4px 12px rgba(15, 23, 42, 0.03);
+  --shadow-btn: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+/* Reset & Base Styles */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--color-bg);
+  color: var(--color-text-main);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  line-height: 1.5;
+}
+
+/* Main Container Layout */
+.calculator-wrapper {
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+/* Header Typography */
+.calculator-header {
+  text-align: center;
+}
+
+.calculator-header .title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-text-header);
+  letter-spacing: -0.02em;
+}
+
+.calculator-header .subtitle {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  margin-top: 4px;
+}
+
+/* Calculator Card Container */
+.calculator-card {
+  width: 100%;
+  background-color: var(--color-card-bg);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-card);
+  box-shadow: var(--shadow-card);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Calculator Screen Display */
+.calculator-display {
+  background-color: var(--color-display-bg);
+  border: 1px solid var(--color-display-border);
+  border-radius: var(--radius-display);
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: center;
+  min-height: 96px;
+  word-wrap: break-word;
+  word-break: break-all;
+  overflow: hidden;
+}
+
+.history-display {
+  min-height: 20px;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  text-align: right;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.main-display {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  text-align: right;
+  width: 100%;
+  letter-spacing: -0.01em;
+  overflow-x: auto;
+  scrollbar-width: none; /* Firefox */
+}
+
+.main-display::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* CSS Grid Keypad Layout */
+.calculator-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+}
+
+/* Base Button Styles */
+.btn {
+  font-family: var(--font-family);
+  font-size: 1.25rem;
+  font-weight: 600;
+  height: 56px;
+  border-radius: var(--radius-btn);
+  border: 1px solid var(--btn-num-border);
+  background-color: var(--btn-num-bg);
+  color: var(--btn-num-text);
+  box-shadow: var(--shadow-btn);
+  cursor: pointer;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.08s ease;
+  outline: none;
+}
+
+.btn:focus-visible {
+  outline: 2px solid var(--btn-op-text);
+  outline-offset: 2px;
+}
+
+/* Subtle Hover & Click (Active) Effects */
+.btn:hover {
+  background-color: var(--btn-num-hover);
+}
+
+.btn:active {
+  transform: scale(0.96);
+  background-color: var(--btn-num-active);
+}
+
+/* Clear Button */
+.btn-clear {
+  grid-column: span 2;
+  background-color: var(--btn-clear-bg);
+  color: var(--btn-clear-text);
+  border-color: var(--btn-clear-border);
+  font-weight: 700;
+}
+
+.btn-clear:hover {
+  background-color: var(--btn-clear-hover);
+}
+
+.btn-clear:active {
+  background-color: var(--btn-clear-active);
+}
+
+/* Delete / Backspace Button */
+.btn-delete {
+  background-color: var(--btn-del-bg);
+  color: var(--btn-del-text);
+  border-color: var(--btn-del-border);
+  font-size: 1.1rem;
+}
+
+.btn-delete:hover {
+  background-color: var(--btn-del-hover);
+}
+
+.btn-delete:active {
+  background-color: var(--btn-del-active);
+}
+
+/* Operator Buttons (+ - × ÷) */
+.btn-operator {
+  background-color: var(--btn-op-bg);
+  color: var(--btn-op-text);
+  border-color: var(--btn-op-border);
+  font-size: 1.35rem;
+  font-weight: 700;
+}
+
+.btn-operator:hover {
+  background-color: var(--btn-op-hover);
+}
+
+.btn-operator:active {
+  background-color: var(--btn-op-active);
+}
+
+/* Highlighted active operator */
+.btn-operator.active-op {
+  background-color: #2563eb;
+  color: #ffffff;
+  border-color: #1d4ed8;
+}
+
+/* Zero Button (spans 2 columns) */
+.btn-zero {
+  grid-column: span 2;
+}
+
+/* Decimal Button */
+.btn-decimal {
+  font-weight: 700;
+}
+
+/* Equals Button */
+.btn-equals {
+  background-color: var(--btn-eq-bg);
+  color: var(--btn-eq-text);
+  border-color: var(--btn-eq-border);
+  font-weight: 700;
+  font-size: 1.35rem;
+}
+
+.btn-equals:hover {
+  background-color: var(--btn-eq-hover);
+}
+
+.btn-equals:active {
+  background-color: var(--btn-eq-active);
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 400px) {
+  .calculator-card {
+    padding: 16px;
+    gap: 16px;
+  }
+
+  .calculator-grid {
+    gap: 8px;
+  }
+
+  .btn {
+    height: 50px;
+    font-size: 1.15rem;
+  }
+
+  .main-display {
+    font-size: 1.75rem;
+  }
+}

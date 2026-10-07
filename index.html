@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Basic Calculator built for VEDA Technology Internship Task 7 using HTML5, CSS3, and JavaScript.">
+  <title>Basic Calculator | VEDA Technology — Task 7</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <main class="calculator-wrapper">
+    <header class="calculator-header">
+      <h1 class="title">Basic Calculator</h1>
+      <p class="subtitle">VEDA Technology — Task 7</p>
+    </header>
+
+    <section class="calculator-card" aria-label="Calculator">
+      <!-- Calculator Display -->
+      <div class="calculator-display">
+        <div id="history-display" class="history-display" aria-live="polite"></div>
+        <div id="main-display" class="main-display" aria-live="polite">0</div>
+      </div>
+
+      <!-- Keypad Buttons Grid -->
+      <div class="calculator-grid">
+        <button type="button" class="btn btn-clear" data-action="clear" id="btn-clear" aria-label="Clear display">C</button>
+        <button type="button" class="btn btn-delete" data-action="delete" id="btn-delete" aria-label="Delete last digit">⌫</button>
+        <button type="button" class="btn btn-operator" data-action="operator" data-val="÷" aria-label="Divide">÷</button>
+
+        <button type="button" class="btn btn-number" data-action="number" data-val="7">7</button>
+        <button type="button" class="btn btn-number" data-action="number" data-val="8">8</button>
+        <button type="button" class="btn btn-number" data-action="number" data-val="9">9</button>
+        <button type="button" class="btn btn-operator" data-action="operator" data-val="×" aria-label="Multiply">×</button>
+
+        <button type="button" class="btn btn-number" data-action="number" data-val="4">4</button>
+        <button type="button" class="btn btn-number" data-action="number" data-val="5">5</button>
+        <button type="button" class="btn btn-number" data-action="number" data-val="6">6</button>
+        <button type="button" class="btn btn-operator" data-action="operator" data-val="-" aria-label="Subtract">-</button>
+
+        <button type="button" class="btn btn-number" data-action="number" data-val="1">1</button>
+        <button type="button" class="btn btn-number" data-action="number" data-val="2">2</button>
+        <button type="button" class="btn btn-number" data-action="number" data-val="3">3</button>
+        <button type="button" class="btn btn-operator" data-action="operator" data-val="+" aria-label="Add">+</button>
+
+        <button type="button" class="btn btn-number btn-zero" data-action="number" data-val="0">0</button>
+        <button type="button" class="btn btn-decimal" data-action="decimal" data-val="." aria-label="Decimal point">.</button>
+        <button type="button" class="btn btn-equals" data-action="equals" id="btn-equals" aria-label="Equals">=</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
